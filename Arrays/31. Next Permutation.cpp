@@ -5,26 +5,22 @@
 */
 
 class Solution {
-public:
-    void nextPermutation(vector<int>& nums) {
-        int n = nums.size();
+  public:
+    void nextPermutation(vector<int>& arr) {
+        // code here
+        int n = arr.size();
+        int i = n-2;
         
-        int i = n-1;
-        for(; i>0; i--) {
-            if(nums[i] > nums[i-1]) {
-                break;
-            }
+        while(i>=0 && arr[i]>=arr[i+1]){
+            i--;
         }
-        if(i != 0) {
-            int index = i;
-            for(int j = n-1; j>=i; j--) {
-                if(nums[j] > nums[i-1]) {
-                    index = j;
-                    break;
-                }
+        if(i>=0){
+            int j = n-1;
+            while(arr[j]<=arr[i]){
+                j--;
             }
-            swap(nums[i-1], nums[index]);
+            swap(arr[i] , arr[j]);
         }
-        reverse(nums.begin()+i, nums.end());
+        reverse(arr.begin()+i+1 , arr.end());
     }
 };
