@@ -66,7 +66,7 @@ public:
 };
 
 
-///////////////////////////////
+//
 #include <vector>
 #include <algorithm>
 #include <deque>
